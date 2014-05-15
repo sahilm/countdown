@@ -27,6 +27,6 @@ body {
 @media (max-width: 600px) {
   .timer {
     font-size: 4.5em;
-    margin-top: 10%;
+    margin: 40% 5% 0;
   }
 }
