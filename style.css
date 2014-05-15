@@ -2,6 +2,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  font-size: 100%;
 }
 
 body {
@@ -11,7 +12,21 @@ body {
   background: whitesmoke;
 }
 
+.container {
+  text-align: center;
+}
+
 .timer {
   font-family: Roboto, serif;
   font-weight: 400;
+  font-size: 10em;
+  color: #3C3737;
+  margin: 15% 5% 0;
+}
+
+@media (max-width: 600px) {
+  .timer {
+    font-size: 4.5em;
+    margin-top: 10%;
+  }
 }

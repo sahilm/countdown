@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  var start = moment.duration(1, "minutes");
+  var start = moment.duration(15, "minutes");
   var interval = moment.duration(1, "second");
   var domTarget = document.getElementById("timer");
   var renderTimer = function() {
