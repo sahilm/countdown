@@ -17,8 +17,8 @@
   renderTimer();
 
   function minutes() {
-    var param = window.location.search.match(/minutes=(\d+)/);
-    return param && param[1] ? parseInt(param[1]) : 15;
+    var matches = window.location.search.match(/(m|minutes)=(\d+)/);
+    return matches && matches[2] ? parseInt(2) : 15;
   }
 
 })();
