@@ -18,7 +18,7 @@
 
   function minutes() {
     var matches = window.location.search.match(/(m|minutes)=(\d+)/);
-    return matches && matches[2] ? parseInt(2) : 15;
+    return matches && matches[2] ? parseInt(matches[2]) : 15;
   }
 
 })();
