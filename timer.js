@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  var start = moment.duration(1, "minutes");
+  var start = moment.duration(minutes(), "minutes");
   var interval = moment.duration(1, "second");
   var domTarget = document.getElementById("timer");
   var tone = document.getElementById("tone");
@@ -13,5 +13,12 @@
     }
     setTimeout(renderTimer, interval.asMilliseconds());
   };
+
   renderTimer();
+
+  function minutes() {
+    var param = window.location.search.match(/minutes=(\d+)/);
+    return param && param[1] ? parseInt(param[1]) : 15;
+  }
+
 })();
