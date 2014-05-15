@@ -5,8 +5,10 @@
   var domTarget = document.getElementById("timer");
   var renderTimer = function() {
     domTarget.textContent = start.minutes() + "m" + " " + start.seconds() + "s";
-    start.subtract(interval);
+    if (start.asSeconds() > 0) {
+      start.subtract(interval);
+      setTimeout(renderTimer, interval.asMilliseconds());
+    }
   };
   renderTimer();
-  setInterval(renderTimer, interval.asMilliseconds());
 })();
