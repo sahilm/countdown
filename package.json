@@ -1,0 +1,29 @@
+{
+  "name": "countdown",
+  "version": "0.1.0",
+  "description": "A sweet countdown timer",
+  "main": "timer.js",
+  "author": "Sahil Muthoo <sahil.muthoo@gmail.com> (http://www.sahilm.com)",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.github.com/sahilm/countdown/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sahilm/countdown.git"
+  },
+  "devDependencies": {
+    "grunt": "0.4.5",
+    "grunt-contrib-csslint": "0.2.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-lint5": "0.3.0",
+    "html5-lint": "0.2.2",
+    "jshint": "2.5.0",
+    "csslint": "0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
