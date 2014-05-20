@@ -13,7 +13,6 @@
   "noempty": true,
   "nonbsp": true,
   "nonew": true,
-  "quotmark": true,
   "undef": true,
   "unused": true,
   "strict": true,

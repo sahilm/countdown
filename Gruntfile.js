@@ -2,7 +2,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
     jshint: {
-      myFiles: ["timer.js"]
+      myFiles: ["timer.js"],
+      options: {
+        jshintrc: ".jshintrc"
+      }
     },
     csslint: {
       strict: {
