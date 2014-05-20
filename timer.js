@@ -1,11 +1,11 @@
 (function() {
   "use strict";
-  var duration = moment.duration(minutes(), "minutes");
+  var duration = moment.duration(minutes(), "hours");
   var interval = moment.duration(1, "second");
   var target = document.getElementById("timer");
   var tone = document.getElementById("tone");
   var timer = function() {
-    target.textContent = renderDuration(duration);
+    target.innerHTML = renderDuration(duration);
     if (duration.asSeconds() > 0) {
       duration.subtract(interval);
     } else {
@@ -22,16 +22,22 @@
   }
 
   function renderDuration(duration) {
+    var template = '<span class="digit">$digit</span>'+
+                   '<span class="sep">$sep</span>';
+
     var hours = function() {
-      return duration.hours() + "h";
+      return template.replace("$digit", duration.hours())
+                     .replace("$sep", "h");
     };
 
     var minutes = function() {
-      return duration.minutes() + "m";
+      return template.replace("$digit", duration.minutes())
+                     .replace("$sep", "m");
     };
 
     var seconds = function() {
-      return duration.seconds() + "s";
+      return template.replace("$digit", duration.seconds())
+                     .replace("$sep", "s");
     };
 
     var ret = [seconds()];
@@ -40,7 +46,7 @@
     } else if (duration.minutes() > 0) {
       ret.unshift(minutes());
     }
-    return ret.join(" ");
+    return ret.join("");
   }
 
 })();
