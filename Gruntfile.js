@@ -21,10 +21,13 @@ module.exports = function(grunt) {
       dirPath: ".",
       templates: ["index.html"]
     },
-    "http-server": {
-      "dev": {
-        port: 8888,
-        cache: 0
+    connect: {
+      server: {
+        options: {
+          port: 8888,
+          base: './',
+          keepalive: true
+        }
       }
     }
   });
@@ -32,7 +35,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-csslint");
   grunt.loadNpmTasks("grunt-lint5");
-  grunt.loadNpmTasks('grunt-http-server');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask("test", ["jshint", "csslint", "lint5"]);
 };
