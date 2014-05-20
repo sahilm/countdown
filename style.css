@@ -39,12 +39,12 @@ body {
   }
 
   .timer .digit {
-    font-size: 6em;
+    font-size: 7em;
     padding-right: 1%;
   }
 
   .timer .sep {
-   font-size: 3em;
+   font-size: 3.5em;
    padding-right: 5%;
  }
 }
@@ -55,12 +55,12 @@ body {
   }
 
   .timer .digit {
-    font-size: 4em;
+    font-size: 5em;
     padding-right: 1%;
   }
 
   .timer .sep {
-   font-size: 2em;
+   font-size: 2.5em;
    padding-right: 5%;
  }
 }
@@ -71,12 +71,12 @@ body {
   }
 
   .timer .digit {
-    font-size: 2em;
+    font-size: 3em;
     padding-right: 1%;
   }
 
   .timer .sep {
-   font-size: 1em;
+   font-size: 1.5em;
    padding-right: 5%;
  }
 }
