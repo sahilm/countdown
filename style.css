@@ -35,56 +35,64 @@ body {
 
 @media only screen and (min-width: 641px) and (max-width: 800px) {
   .timer {
-    margin: 35% 5% 0;
+    margin: 20% 2% 0;
   }
 
   .timer .digit {
     font-size: 7em;
+    padding-right: 1%;
   }
 
   .timer .sep {
    font-size: 3.5em;
+   padding-right: 5%;
  }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 640px) {
   .timer {
-    margin: 35% 5% 0;
+    margin: 20% 2% 0;
   }
 
   .timer .digit {
     font-size: 5em;
+    padding-right: 1%;
   }
 
   .timer .sep {
    font-size: 2.5em;
+   padding-right: 5%;
  }
 }
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .timer {
-    margin: 35% 5% 0;
+    margin: 20% 2% 0;
   }
 
   .timer .digit {
     font-size: 3em;
+    padding-right: 1%;
   }
 
   .timer .sep {
    font-size: 1.5em;
+   padding-right: 5%;
  }
 }
 
 @media only screen (max-width: 240px) {
   .timer {
-    margin: 35% 5% 0;
+    margin: 20% 2% 0;
   }
 
   .timer .digit {
     font-size: 2.5em;
+    padding-right: 1%;
   }
 
   .timer .sep {
    font-size: 1em;
+   padding-right: 5%;
  }
 }
