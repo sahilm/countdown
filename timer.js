@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  var duration = moment.duration(minutes(), "hours");
+  var duration = moment.duration(minutes(), "minutes");
   var interval = moment.duration(1, "second");
   var target = document.getElementById("timer");
   var tone = document.getElementById("tone");
