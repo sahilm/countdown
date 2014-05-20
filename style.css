@@ -80,3 +80,19 @@ body {
    padding-right: 5%;
  }
 }
+
+@media only screen (max-width: 240px) {
+  .timer {
+    margin: 20% 2% 0;
+  }
+
+  .timer .digit {
+    font-size: 2.5em;
+    padding-right: 1%;
+  }
+
+  .timer .sep {
+   font-size: 1em;
+   padding-right: 5%;
+ }
+}
