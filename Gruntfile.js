@@ -12,14 +12,11 @@ module.exports = function(grunt) {
         options: {
           import: 2,
           "box-sizing": false,
-          "universal-selector": false
+          "universal-selector": false,
+          "font-sizes": false
         },
         src: ['style.css']
       }
-    },
-    lint5: {
-      dirPath: ".",
-      templates: ["index.html"]
     },
     connect: {
       server: {
@@ -34,8 +31,7 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-csslint");
-  grunt.loadNpmTasks("grunt-lint5");
   grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask("test", ["jshint", "csslint", "lint5"]);
+  grunt.registerTask("default", ["jshint", "csslint"]);
 };

@@ -81,7 +81,7 @@ body {
  }
 }
 
-@media only screen (max-width: 240px) {
+@media only screen and (max-width: 240px) {
   .timer {
     margin: 20% 2% 0;
   }
