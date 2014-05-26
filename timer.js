@@ -7,26 +7,53 @@
   timer();
 
   d(document).on("click", function () {
-    timerElement.classList.remove("editing");
-    duration = parseDuration();
+    finishEditing();
   });
 
-  d(timerElement).on("click", "digit", function (e) {
+  d(timerElement).on("click", function (e) {
     if (!timerElement.classList.contains("editing")) {
-      timerElement.classList.add("editing");
       timerElement.innerHTML = renderDuration({ duration: duration, editing: true});
+      timerElement.classList.add("editing");
     }
     e.stopPropagation();
   });
 
-  d(timerElement).on("keyup", "digit", function () {
+  d(timerElement).on("keyup", "digit", function (e) {
+    if (!timerElement.classList.contains("editing")) {
+      timerElement.classList.add("editing");
+      timerElement.innerHTML = renderDuration({ duration: duration, editing: true});
+    }
 
+    if (e.which === 13 || e.keyCode === 13) {
+      finishEditing();
+    }
+
+    if (e.which === 27 || e.keyCode === 27) {
+      finishEditing();
+    }
   });
+
+  d(timerElement).on("keypress", "digit", function (e) {
+    if (e.which === 13 || e.keyCode === 13) {
+      finishEditing();
+      e.preventDefault();
+    }
+
+    if (e.which === 27 || e.keyCode === 27) {
+      finishEditing();
+      e.preventDefault();
+    }
+  });
+
+  function finishEditing() {
+    timerElement.classList.remove("editing");
+    duration = parseDuration();
+  }
 
   function timer() {
     var editing = timerElement.classList.contains("editing");
     if (editing) {
-      setTimeout(timer, 100);
+      setTimeout(timer, 500);
     }
     else {
       timerElement.innerHTML = renderDuration({ duration: duration, editing: editing});
@@ -40,13 +67,13 @@
   }
 
   function parseDuration() {
-    var digitElements = timerElement.querySelectorAll(".digit");
-    if (digitElements.length > 0) {
+    var digits = timerElement.querySelectorAll(".digit");
+    if (digits.length > 0) {
       var moments = [];
-      for (var i = 0; i < digitElements.length; i++) {
-        var digit = digitElements[i].innerHTML;
-        var unit = digitElements[i].getAttribute("data-unit");
-        moments.push(moment.duration(parseInt(digit), unit));
+      for (var i = 0; i < digits.length; i++) {
+        var digit = digits[i].innerHTML;
+        var unit = digits[i].getAttribute("data-unit");
+        moments.push(moment.duration(parseInt(digit, 10), unit));
       }
       return moments.reduce(function (m1, m2) {
         return m1.add(m2);
@@ -61,7 +88,7 @@
     var editing = opts.editing;
 
     var template = function () {
-      var t = '<span class="digit" data-unit="$unit" ' +
+      var t = '<span class="digit" data-unit="$unit" tabindex="$tabindex"' +
         'contenteditable="$editable">$digit</span>' +
         '<span class="sep">$sep</span>';
       return t.replace("$editable", editing);
@@ -70,19 +97,22 @@
     var hours = function () {
       return template().replace("$digit", duration.hours())
         .replace("$sep", "h")
-        .replace("$unit", "hours");
+        .replace("$unit", "hours")
+        .replace("$tabindex", "1");
     };
 
     var minutes = function () {
       return template().replace("$digit", duration.minutes())
         .replace("$sep", "m")
-        .replace("$unit", "minutes");
+        .replace("$unit", "minutes")
+        .replace("$tabindex", "2");
     };
 
     var seconds = function () {
       return template().replace("$digit", duration.seconds())
         .replace("$sep", "s")
-        .replace("$unit", "seconds");
+        .replace("$unit", "seconds")
+        .replace("$tabindex", "3");
     };
 
     if (editing) {
@@ -111,9 +141,9 @@
         domElement.addEventListener(event, function (e) {
           if (args.length < 3) {
             fn = classNameOrFn;
-            return fn(e);
+            return fn.call(domElement, e);
           } else {
-            return filter(e);
+            return filter.call(domElement, e);
           }
         });
         return domElement;
